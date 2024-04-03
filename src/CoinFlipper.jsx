@@ -1,11 +1,17 @@
 import { useState } from "react";
 import "./CoinFlipper.css";
-import "./Coin";
-import "./Counter";
+import Coin from "./Coin";
+import Counter from "./Counter";
 
 const coinSides = ["heads", "tails"];
 
-/** TODO: */
+/** Contains coin flipping logic
+ *
+ * Props: none
+ * State: coinSide, headsCount, tailsCount
+ *
+ * App -> CoinFlipper -> Coin, Counter
+ */
 
 function CoinFlipper () {
     const [coinSide, setCoinSide] = useState(null);
@@ -23,7 +29,12 @@ function CoinFlipper () {
         }
     }
 
-
+    return (<div>
+        <h3>Flip the coin</h3>
+        <Coin coinSide={coinSide}/>
+        <button id="flip-btn" onClick={flipCoin}>flip</button>
+        <Counter headsCount={headsCount} tailsCount={tailsCount}/>
+    </div>)
 }
 
 export default CoinFlipper;
